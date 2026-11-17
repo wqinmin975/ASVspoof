@@ -1,0 +1,23 @@
+{
+ "revision_date": "2026-11-14",
+ "deviation_type": "population standard deviation (statistics.pstdev, ddof=0)",
+ "bootstrap_seed": 11,
+ "bootstrap_resample_times": 4000,
+ "bootstrap_scope": "paired bootstrap 95% CI over the 10 MLP delta runs only",
+ "bootstrap_ci_field": "real_summary.json -> delta_ci95 (top-level key)",
+ "bootstrap_not_applied_to": "logistic-regression delta",
+ "calibration_method": "temperature+bias (torch LBFGS over log-temperature and bias)",
+ "calibration_holdout_fraction": 0.15,
+ "calibration_holdout_min_samples": 64,
+ "cost_fp": 5.0,
+ "cost_fn": 20.0,
+ "threshold_thr_rule": 0.2,
+ "threshold_formula": "c_FP/(c_FP + c_FN)",
+ "delta_definition": "cost@0.5 - cost@rule (per 1,000 calls)",
+ "n_runs_per_detector": 10,
+ "folds": 5,
+ "seeds": 2,
+ "cost_unit": "per 1,000 calls",
+ "aggregation_input": "real_runs.csv (20 rows = 2 seeds x 5 folds x 2 detectors)",
+ "exp22_naming_note": "exp22_* fields use each fold's measured test positive rate yte.mean(), NOT a fixed prior 0.22; the name is a historical artifact."
+}

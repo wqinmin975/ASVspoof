@@ -1,0 +1,31 @@
+D:\ace\语义攻击\asvspoof5_check\run_real_check.py:168: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:821.)
+  return float(torch.exp(a)), float(b)
+[90mdata X=(2000, 50) pos=0.500 families=[np.str_('A09'), np.str_('A10'), np.str_('A11'), np.str_('A12'), np.str_('A13'), np.str_('A14'), np.str_('A15'), np.str_('A16'), np.str_('bonafide')][0m
+[90mreproduction gate passed for 20 rows[0m
+
+=== #11 cost-ratio sweep (delta = cost@0.5 - cost@rule, per 1,000) ===
+  mlp: 1:1->0(±0), 1:2->27(±26), 1:4->171(±60), 1:8->547(±154), 1:10->753(±198), 1:15->1281(±307), 1:20->1821(±403)
+  lr: 1:1->0(±0), 1:2->67(±63), 1:4->298(±180), 1:8->871(±373), 1:10->1162(±472), 1:15->1894(±720), 1:20->2628(±960)
+
+=== #13 bootstrap CIs (paired, seed11, B4000) ===
+  mlp delta = 853 [668, 1035]
+  lr delta = 1490 [985, 2087]
+  cross-model delta_LR - delta_MLP = 637 [228, 1118]
+  cost-rule LR/MLP = 1.193 [1.111, 1.263]  (~19.3%)
+
+=== #12 ASVspoof5 Track-1 minDCF (local re-impl) ===
+  mlp: minDCF=0.522 @ tau=0.708; our-cost@tDCF=3805 vs @0.2=2008
+  lr: minDCF=0.862 @ tau=0.657; our-cost@tDCF=6530 vs @0.2=2396
+
+=== #14 robustness (extra seeds 2,3,4) ===
+  mlp delta mean=777 sd=360 min=375 max=1881
+  lr delta mean=1538 sd=669 min=579 max=2904
+
+=== #15 slot-7 ablation (col index 6 zeroed) ===
+  mlp: AUPRC 0.8671->0.8687 (+0.18%); delta 853->874 (+2.53%)
+  lr: AUPRC 0.6904->0.6912 (+0.12%); delta 1490->1477 (-0.85%)
+
+=== #18 ECE bin sensitivity (calibrated) ===
+  mlp: 10:0.0684  15:0.0747  20:0.0836  30:0.0914
+  lr: 10:0.0675  15:0.0772  20:0.0786  30:0.0956

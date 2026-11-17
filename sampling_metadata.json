@@ -1,0 +1,32 @@
+{
+  "generated_by": "extract_feats.py::write_sampling_metadata (metadata-only, no re-sampling)",
+  "revision_date": "2026-11-14",
+  "corpus_shard_display_name": "flac_D_aa",
+  "local_audio_directory": "D:\\ace\\语义攻击\\asvspoof5_check\\audio\\flac_D",
+  "protocol_file": "D:\\ace\\语义攻击\\asvspoof5_check\\protocols\\ASVspoof5.dev.track_1.tsv",
+  "numpy_version": "2.5.4",
+  "random_seed": 2026,
+  "n_bona": 1000,
+  "per_attack": 125,
+  "file_sort_rule": "sorted(set(local .flac stems))",
+  "rng_consumption_order": "one shared default_rng(2026): shuffle(bona) first, then shuffle(lst) once per attack in sorted(by_attack.items()) order",
+  "attack_shuffle_order": [
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "A15",
+    "A16"
+  ],
+  "speaker_stratified": false,
+  "full_protocol_line_count": 140950,
+  "full_protocol_unique_speaker": 785,
+  "local_pool_flac_count": 47400,
+  "sampled_utterance_count": 2000,
+  "subset_unique_speaker": 628,
+  "selected_ids_field": "feats.npz['fid'] (all 2,000 ids are stored)",
+  "featlib_note": "P1-3 option A: comment-only revision, numerical feature outputs unchanged; spectral-flux std was annotated but never implemented (slot 7 duplicates the slot-6 flux mean).",
+  "reproduction_note": "Downstream folds/training/evaluation reproduce from feats.npz['fid'] alone. Regenerating feats.npz FROM RAW protocol+flac additionally depends on numpy version, the sorted filename order, the shared default_rng(2026) state and the 8 attack-list shuffle order."
+}
